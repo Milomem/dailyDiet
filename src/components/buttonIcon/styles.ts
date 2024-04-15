@@ -10,8 +10,8 @@ type Props = {
 }
 
 export const Container = styled(TouchableOpacity)<Props>`
-    flex: 1;
-    max-height: 50px;
+    width: 100%;
+    height: 50px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -25,6 +25,7 @@ export const Title = styled(Text)<Props>`
         font-size: ${theme.FONT_SIZE.SM}px;
         color: ${type === 'primary' ? theme.COLORS.WHITE : theme.COLORS.GRAY_100};
         font-family: ${theme.FONT_FAMILY.BOLD};
+        text-align: center;
     `}
 `
 
