@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold} from '@expo-google-fonts/nunito-sans'
 import theme from '@theme/index';
 import { ThemeProvider } from 'styled-components/native';
+
 import { Loading } from '@components/loading';
 import { Home } from '@screens/home';
 

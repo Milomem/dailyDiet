@@ -1,9 +1,10 @@
-import { View, Text } from "react-native";
+import { Container } from "./styles";
+import { ButtonIcon } from "@components/buttonIcon";
 
 export function Home() {
     return(
-        <View>
-            <Text>Home</Text>
-        </View>
+        <Container>
+            <ButtonIcon icon="add" title="Nova refeição"/>
+        </Container>
     )
 }
