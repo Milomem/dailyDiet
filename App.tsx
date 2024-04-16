@@ -5,7 +5,7 @@ import theme from '@theme/index';
 import { ThemeProvider } from 'styled-components/native';
 
 import { Loading } from '@components/loading';
-import { Home } from '@screens/home';
+import { Statistic } from '@screens/statistic';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold })
@@ -17,7 +17,7 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      {fontsLoaded ? <Home/> : <Loading />}
+      {fontsLoaded ? <Statistic/> : <Loading />}
     </ThemeProvider>
   )
 }

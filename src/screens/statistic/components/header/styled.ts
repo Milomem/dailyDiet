@@ -1,14 +1,11 @@
-import { ArrowLeft, ArrowUpRight } from "phosphor-react-native";
+import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
     width: 100%;
-    height: 102px;
     align-items: center;
     justify-content: center;
-    background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
-    border-radius: 8px;
-    padding: 20px 16px;
+    padding: 24px;
 `
 
 export const Percent = styled.Text`
@@ -16,6 +13,7 @@ export const Percent = styled.Text`
         color: ${theme.COLORS.GRAY_100};
         font-size: ${theme.FONT_SIZE.XXL}px;
         font-family: ${theme.FONT_FAMILY.BOLD};
+        margin-top: 32px;
     `}
 `
 
@@ -27,24 +25,7 @@ export const Description = styled.Text`
     `}
 `
 
-export const Icon = styled(ArrowUpRight).attrs(({ theme }) => ({
-    size: 24,
-    color: theme.COLORS.GREEN_DARK,
-}))`
-`
-
-export const ContainerHeader = styled.View`
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-`
-
-export const Button = styled.TouchableOpacity`
-  flex: 1;
-  align-self: flex-end;
-`;
-
-export const IconBack = styled(ArrowLeft).attrs(({ theme }) => ({
+export const Icon = styled(ArrowLeft).attrs(({ theme }) => ({
     size: 24,
     color: theme.COLORS.GREEN_DARK,
 }))`
