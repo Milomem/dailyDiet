@@ -1,13 +1,29 @@
 import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 
-export const Container = styled(TouchableOpacity)`
-    width: 159.5px;
+export type DotStypeTypeProps = 'GREEN' | 'RED' 
+
+export type PropsStyleDotButton = {
+    color: DotStypeTypeProps;
+    isActive?: boolean;
+}
+
+export const Container = styled(TouchableOpacity)<PropsStyleDotButton>`
+    width: 47.5%;
     height: 50px;
     border-radius: 6px;
-    gap: 8px;
 
     background-color: ${({theme}) => theme.COLORS.GRAY_600};
+
+    ${({theme, isActive, color}) => color === 'GREEN' ?  isActive && css`
+        background-color: ${theme.COLORS.GREEN_LIGHT};
+        border: 1px solid ${theme.COLORS.GREEN_DARK};
+    ` : isActive && css`
+        background-color: ${theme.COLORS.RED_LIGHT};
+        border: 1px solid ${theme.COLORS.RED_DARK};
+    ` }
+
+
     padding: 16px;
 
     align-items: center;
@@ -23,10 +39,10 @@ export const Title = styled.Text`
     `}
 `
 
-export const Dot = styled.View`
+export const Dot = styled.View<PropsStyleDotButton>`
     width: 8px;
     height: 8px;
-    background-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+    background-color: ${({ theme, color }) => color === 'RED' ? theme.COLORS.RED_DARK : theme.COLORS.GREEN_DARK};
     border-radius: 99px;
 `
 
@@ -35,4 +51,5 @@ export const ContainerDot = styled.View`
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    gap: 8px;
 `

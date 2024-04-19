@@ -16,8 +16,9 @@ export const Title = styled.Text`
     color: ${theme.COLORS.GRAY_100};
     font-size: ${theme.FONT_SIZE.LG}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
-    text-align: center;
     
+    text-align: center;
+    margin-left: -24px;
     flex: 1;
   `}
 `;

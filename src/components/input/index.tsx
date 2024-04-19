@@ -1,10 +1,23 @@
-import { Container, InputText, Title } from "./styles";
+import { TextInput, TextInputProps } from "react-native";
+import { Container, InputContainerTypeStyleProps, InputText, InputTypeStyleProps, Title } from "./styles";
+import { useTheme } from "styled-components/native";
 
-export function Input() {
+type Props = TextInputProps & {
+    title: string;
+    type?: InputTypeStyleProps;
+    size?: InputContainerTypeStyleProps;
+    inputRef?: React.RefObject<TextInput>;
+  }
+
+export function Input({ title, type = 'SMALL', size='BIG', inputRef ,...rest } : Props) {
+    const { COLORS } = useTheme();
     return (
-        <Container>
-            <Title>Nome</Title>
-            <InputText placeholder="Digite o nome do prato" />
+        <Container size={size}>
+            <Title>{title}</Title>
+            <InputText
+              ref={inputRef}
+              type={type}
+              {...rest} />
         </Container>
     )
 }

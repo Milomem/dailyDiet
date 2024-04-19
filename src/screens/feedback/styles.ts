@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { RouteParams } from ".";
 
 export const Container = styled(SafeAreaView)`
     flex: 1;
@@ -12,14 +13,16 @@ export const Container = styled(SafeAreaView)`
 `
 
 export const ContainerImage = styled.Image`
-    
+    margin-top: 32px;
+    margin-bottom: 32px;
 `
 
-export const Title = styled.Text`
-    ${({ theme }) => css`
+export const Title = styled.Text<RouteParams>`
+    ${({ theme, feedback }) => css`
         font-family: ${theme.FONT_FAMILY.BOLD};
         font-size: ${theme.FONT_SIZE.XL}px;
-        color: ${theme.COLORS.GREEN_DARK};
+        color: ${feedback === 'positive' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+        padding-bottom: 8px;
     `}
 `
 
@@ -28,6 +31,7 @@ export const Description = styled.Text`
         font-family: ${theme.FONT_FAMILY.REGULAR};
         font-size: ${theme.FONT_SIZE.MD}px;
         color: ${theme.COLORS.GRAY_100};
+        text-align: center;
     `}
 `
 
@@ -37,4 +41,10 @@ export const Span = styled.Text`
         font-size: ${theme.FONT_SIZE.MD}px;
         color: ${theme.COLORS.GRAY_100};
     `}
+`
+
+export const ButtonContainer = styled.View`
+    width: 50%;
+    align-items: center;
+    align-items: center;
 `

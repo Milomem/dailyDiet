@@ -1,11 +1,16 @@
-import { Container, ContainerDot, Dot, Title } from "./styles";
+import { TouchableOpacityProps } from "react-native";
+import { Container, ContainerDot, Dot, DotStypeTypeProps, PropsStyleDotButton, Title } from "./styles";
 
-export function DotButton() {
+type Props = TouchableOpacityProps & PropsStyleDotButton &{
+    title: string;
+}
+
+export function DotButton( { title, color, isActive = false, ...rest }: Props) {
     return (
-        <Container>
+        <Container color={color} isActive={isActive} {...rest} >
             <ContainerDot>
-                <Title>Sim</Title>
-                <Dot/>
+                <Dot color={color}/>
+                <Title>{title}</Title>
             </ContainerDot>
         </Container>
     )
