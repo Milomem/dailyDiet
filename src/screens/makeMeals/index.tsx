@@ -4,8 +4,15 @@ import { Input } from "@components/input";
 import { BigBg } from "@components/bigBg";
 import { DotButton } from "@components/dotButton";
 import { Button } from "@components/button";
+import { useNavigation } from "@react-navigation/native";
 
 export function MakeMeals() {
+    const navigation = useNavigation();
+
+    function handleNavigateToFeedback() {
+        navigation.navigate('feedback');
+    }
+    
     return(
         <Container>
             <Header />
@@ -25,7 +32,7 @@ export function MakeMeals() {
                     </InputContainer>
                 </TitleContainer>
 
-                <Button title="Cadastrar refeição"/>
+                <Button onPress={handleNavigateToFeedback} title="Cadastrar refeição"/>
             </BigBg>
         </Container>
     )

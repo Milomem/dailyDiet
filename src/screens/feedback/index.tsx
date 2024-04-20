@@ -4,12 +4,18 @@ import { Button } from "@components/button";
 
 import illustration from '@assets/Illustration.png'
 import negative from '@assets/negative.png'
+import { useNavigation } from "@react-navigation/native";
 
  export type RouteParams = {
     feedback: 'positive' | 'negative';
   }
 
 export function Feedback() {
+    const navigation = useNavigation();
+
+    function handleNavigateToHome() {
+        navigation.navigate('home');
+    }
     
     const { feedback } = route.params as RouteParams;
 
@@ -41,7 +47,7 @@ export function Feedback() {
             )}
             
             <ButtonContainer>
-                <Button title="Ir para a página inicial"/>
+                <Button onPress={handleNavigateToHome} title="Ir para a página inicial"/>
             </ButtonContainer>
         </Container>
     )

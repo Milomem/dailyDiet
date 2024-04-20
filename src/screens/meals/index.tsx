@@ -2,12 +2,19 @@ import { Header } from "@components/header";
 import { Container, DotContainer, DotTitle, Title, Subtitle, Time, Dot, ButtonContainer } from "./styles";
 import { BigBg } from "@components/bigBg";
 import { ButtonIcon } from "@components/buttonIcon";
+import { useNavigation } from "@react-navigation/native";
 
 export type RouteParams = {
     feedback: 'positive' | 'negative';
   }
 
 export function Meals () {
+    const navigation = useNavigation();
+
+    function handleNavigateToMakeMeals() {
+        navigation.navigate('makeMeals');
+    }
+
     const { feedback } = route.params as RouteParams;
 
     return (
@@ -27,7 +34,7 @@ export function Meals () {
                 </DotContainer>
 
                 <ButtonContainer>
-                    <ButtonIcon title="Editar refeição" icon="edit"/>
+                    <ButtonIcon onPress={handleNavigateToMakeMeals} title="Editar refeição" icon="edit"/>
                     <ButtonIcon type="secondary" title="Excluir refeição" icon="delete"/>
                 </ButtonContainer>
             </BigBg>
