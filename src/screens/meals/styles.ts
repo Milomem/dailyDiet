@@ -2,8 +2,8 @@ import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
     flex: 1;
-    background-color: ${({theme}) => theme.COLORS.GRAY_500};
-    margin-top: 32px;
+    background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+    padding-top: 48px;
 `
 
 export const Content = styled.View`
@@ -16,25 +16,26 @@ export const Content = styled.View`
 
 export const Title = styled.Text`
     ${({theme}) => css`
-        font-size: ${theme.SIZES.LG};
-        font-weight: ${theme.FONT_WEIGHTS.BOLD};
+        font-size: 20px;
+        font-family: ${theme.FONT_FAMILY.BOLD} ;
         color: ${theme.COLORS.GRAY_100};
     `};
 `
 
 export const Subtitle = styled.Text`
     ${({theme}) => css`
-        font-size: ${theme.SIZES.MD};
-        font-weight: ${theme.FONT_WEIGHTS.REGULAR};
+        font-size: ${theme.FONT_SIZE.MD}px;
+        font-family: ${theme.FONT_FAMILY.REGULAR};
         color: ${theme.COLORS.GRAY_200};
         margin-top: 8px;
+        margin-bottom: 24px;
     `};
 `
 
 export const Time = styled.Text`
     ${({theme}) => css`
-        font-size: ${theme.SIZES.SM};
-        font-weight: ${theme.FONT_WEIGHTS.BOLD};
+        font-size: ${theme.FONT_SIZE.SM}px;
+        font-family: ${theme.FONT_FAMILY.BOLD};
         color: ${theme.COLORS.GRAY_100};
     `};
 `
@@ -42,14 +43,19 @@ export const Time = styled.Text`
 export const DotContainer = styled.View`
     width: 159.5px;
     height: 50px;
-    border-radius: 6px;
+    border-radius: 99px;
     gap: 8px;
 
     background-color: ${({theme}) => theme.COLORS.GRAY_600};
-    padding: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
 
     align-items: center;
     justify-content: center;
+    flex-direction: row;
 `
 
 export const DotTitle = styled.Text`
@@ -68,9 +74,10 @@ export const Dot = styled.View`
     border-radius: 99px;
 `
 
-export const ContainerDot = styled.View`
+export const ButtonContainer = styled.View`
     flex: 1;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    width: 100%;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-top: 24px;
 `

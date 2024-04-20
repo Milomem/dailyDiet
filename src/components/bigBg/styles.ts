@@ -8,5 +8,4 @@ export const Container = styled.View`
     padding: 24px;
     padding-bottom: 48px;
 
-    align-items: center;
 `

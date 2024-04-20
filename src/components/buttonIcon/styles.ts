@@ -31,7 +31,7 @@ export const Title = styled(Text)<Props>`
 
 export const Icon = styled(MaterialIcons).attrs<Props>(({theme, type}) => ({
     size: 24,
-    color: type === 'primary' ? theme.COLORS.WHITE : theme.COLORS.GRAY_1
+    color: type === 'primary' ? theme.COLORS.WHITE : theme.COLORS.GRAY_100
 }))`
     margin-right: 12px;
 `

@@ -1,6 +1,7 @@
 import { Header } from "@components/header";
-import { Container, ContainerDot, DotContainer, DotTitle, Title, Subtitle, Time, Dot } from "./styles";
+import { Container, DotContainer, DotTitle, Title, Subtitle, Time, Dot, ButtonContainer } from "./styles";
 import { BigBg } from "@components/bigBg";
+import { ButtonIcon } from "@components/buttonIcon";
 
 export function Meals () {
     return (
@@ -9,14 +10,19 @@ export function Meals () {
             <BigBg>
                 <Title>Sanduíche</Title>
                 <Subtitle>Sanduíche de pão integral com atum e salada de alface e tomate</Subtitle>
+
                 <Time>Data e hora</Time>
                 <Subtitle>12/08/2022 às 16:00</Subtitle>
+
                 <DotContainer>
-                    <ContainerDot>
                         <Dot/>
-                        <DotTitle>200</DotTitle>
-                    </ContainerDot>
+                        <DotTitle>dentro da dieta</DotTitle>
                 </DotContainer>
+
+                <ButtonContainer>
+                    <ButtonIcon title="Editar refeição" icon="edit"/>
+                    <ButtonIcon type="secondary" title="Excluir refeição" icon="delete"/>
+                </ButtonContainer>
             </BigBg>
         </Container>
     )
