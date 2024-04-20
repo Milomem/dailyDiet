@@ -3,9 +3,13 @@ import { Container, DotContainer, DotTitle, Title, Subtitle, Time, Dot, ButtonCo
 import { BigBg } from "@components/bigBg";
 import { ButtonIcon } from "@components/buttonIcon";
 
-export function Meals () {
+export type RouteParams = {
+    feedback: 'positive' | 'negative';
+  }
+
+export function Meals ({ feedback = 'negative'} : RouteParams) {
     return (
-        <Container>
+        <Container feedback={feedback} >
             <Header/>
             <BigBg>
                 <Title>Sanduíche</Title>
@@ -15,8 +19,9 @@ export function Meals () {
                 <Subtitle>12/08/2022 às 16:00</Subtitle>
 
                 <DotContainer>
-                        <Dot/>
-                        <DotTitle>dentro da dieta</DotTitle>
+                        <Dot feedback={feedback}/>
+                        {feedback === 'positive' ? <DotTitle>dentro da dieta</DotTitle> :
+                         <DotTitle>fora da dieta</DotTitle>}
                 </DotContainer>
 
                 <ButtonContainer>

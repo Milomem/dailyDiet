@@ -17,7 +17,7 @@ export const Container = styled(TouchableOpacity)<Props>`
     flex-direction: row;
     border-radius: 6px;
     background-color: ${({theme, type}) => type === 'primary' ? theme.COLORS.GRAY_200 : theme.COLORS.WHITE};
-    border-width: ${({type}) => type === 'primary' ? null : 1};
+    border-width: ${({type}) => type === 'primary' ? 0 : 1};
     border-color: ${({ theme, type}) => type === 'primary' ? null : theme.COLORS.GRAY_100}; ;
 `
 export const Title = styled(Text)<Props>`

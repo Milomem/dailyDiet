@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components/native";
+import { RouteParams } from ".";
 
-export const Container = styled.View`
+export const Container = styled.View<RouteParams>`
     flex: 1;
-    background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+    background-color: ${({theme, feedback}) => feedback === 'positive' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
     padding-top: 48px;
 `
 
@@ -67,10 +68,10 @@ export const DotTitle = styled.Text`
     `}
 `
 
-export const Dot = styled.View`
+export const Dot = styled.View<RouteParams>`
     width: 8px;
     height: 8px;
-    background-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+    background-color: ${({ theme , feedback}) => feedback === 'positive' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
     border-radius: 99px;
 `
 
