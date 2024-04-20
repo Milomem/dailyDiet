@@ -1,9 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import { BackButton, Container, Description, Icon, Percent } from "./styled";
 
 export function Header() {
+    const navigation = useNavigation();
+
+    function handleNavigateGoBack() {
+        navigation.goBack();
+    }
+
     return (
         <Container>
-            <BackButton>
+            <BackButton onPress={handleNavigateGoBack}>
                 <Icon />
             </BackButton>
             <Percent>90,86%</Percent>

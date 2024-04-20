@@ -7,7 +7,9 @@ export type RouteParams = {
     feedback: 'positive' | 'negative';
   }
 
-export function Meals ({ feedback = 'negative'} : RouteParams) {
+export function Meals () {
+    const { feedback } = route.params as RouteParams;
+
     return (
         <Container feedback={feedback} >
             <Header/>

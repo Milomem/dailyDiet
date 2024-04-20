@@ -24,6 +24,7 @@ export const Title = styled.Text`
 `;
 
 export const BackButton = styled.TouchableOpacity`
+  flex: 1;
 `;
 
 export const BackIcon = styled(ArrowLeft).attrs(({ theme }) => ({

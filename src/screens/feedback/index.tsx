@@ -9,7 +9,10 @@ import negative from '@assets/negative.png'
     feedback: 'positive' | 'negative';
   }
 
-export function Feedback({ feedback = 'negative' } : RouteParams) {
+export function Feedback() {
+    
+    const { feedback } = route.params as RouteParams;
+
     return (
         <Container>
             { feedback === 'positive' ? (

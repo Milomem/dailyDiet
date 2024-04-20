@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components/native";
 
+export type DotStypeTypeProps = 'GREEN' | 'RED' 
+
+export type PropsStyleDot = {
+    color: DotStypeTypeProps;
+}
 
 export const Container = styled.TouchableOpacity`
     width: 100%;
@@ -22,7 +27,7 @@ export const Container = styled.TouchableOpacity`
 export const Time = styled.Text`
     ${({ theme }) => css`
         color: ${theme.COLORS.GRAY_100};
-        font-size: ${theme.FONT_SIZE.XXS}px;
+        font-size: ${theme.FONT_SIZE.XSM}px;
         font-family: ${theme.FONT_FAMILY.BOLD};
         text-align: center;
     `}
@@ -48,10 +53,10 @@ export const Bar = styled.View`
     margin-right: 12px;
 `
 
-export const Dot = styled.View`
+export const Dot = styled.View<PropsStyleDot>`
     width: 14px;
     height: 14px;
-    background-color: ${({ theme }) => theme.COLORS.GREEN_MID};
+    background-color: ${({ theme, color }) => color === 'GREEN' ? theme.COLORS.GREEN_MID : theme.COLORS.RED_MID};
     border-radius: 99px;
 `
 

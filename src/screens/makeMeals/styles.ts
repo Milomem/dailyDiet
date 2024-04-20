@@ -12,9 +12,9 @@ export const InputContainer = styled.View`
 `
 
 export const TitleContainer = styled.View`
-margin-top: 24px;
-gap: 8px;
-flex: 1;
+    margin-top: 24px;
+    gap: 8px;
+    flex: 1;
 `
 
 export const Title = styled.Text`

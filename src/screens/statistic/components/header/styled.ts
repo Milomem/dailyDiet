@@ -13,7 +13,7 @@ export const Percent = styled.Text`
         color: ${theme.COLORS.GRAY_100};
         font-size: ${theme.FONT_SIZE.XXL}px;
         font-family: ${theme.FONT_FAMILY.BOLD};
-        margin-top: 32px;
+        margin-top: 12px;
     `}
 `
 

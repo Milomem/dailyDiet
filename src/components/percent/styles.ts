@@ -50,7 +50,7 @@ export const IconBack = styled(ArrowLeft).attrs(({ theme }) => ({
 }))`
 `
 
-export const BackButton = styled.TouchableOpacity`
+export const StatisticButton = styled.TouchableOpacity`
   flex: 1;
-  align-self: flex-start;
+  align-self: flex-end;
 `;

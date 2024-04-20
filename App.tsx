@@ -5,8 +5,7 @@ import theme from '@theme/index';
 import { ThemeProvider } from 'styled-components/native';
 
 import { Loading } from '@components/loading';
-import { Feedback } from '@screens/feedback';
-import { Meals } from '@screens/meals';
+import { Routes } from 'src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold })
@@ -18,7 +17,7 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      {fontsLoaded ? <Meals/> : <Loading />}
+      {fontsLoaded ? <Routes/> : <Loading />}
     </ThemeProvider>
   )
 }
