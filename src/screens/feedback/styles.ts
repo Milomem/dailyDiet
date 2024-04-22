@@ -18,10 +18,10 @@ export const ContainerImage = styled.Image`
 `
 
 export const Title = styled.Text<RouteParams>`
-    ${({ theme, feedback }) => css`
+    ${({ theme, isDiet }) => css`
         font-family: ${theme.FONT_FAMILY.BOLD};
         font-size: ${theme.FONT_SIZE.XL}px;
-        color: ${feedback === 'positive' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+        color: ${isDiet === true ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
         padding-bottom: 8px;
     `}
 `

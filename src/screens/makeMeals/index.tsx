@@ -17,7 +17,7 @@ export function MakeMeals() {
     const [description, setDescription] = useState(''); 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
-    const [isDiet, setIsDiet] = useState<boolean>();
+    const [isDiet, setIsDiet] = useState<boolean>(true);
 
     const navigation = useNavigation();
 
@@ -37,12 +37,8 @@ export function MakeMeals() {
             }
             await mealsCreate({date, data: [{id: nome + description, nome, description, time, color: isDiet ? 'GREEN' : 'RED'}]});
 
-            if(isDiet) {
-                navigation.navigate('feedback',{isDiet});
-            } 
-            else {
-                navigation.navigate('feedback',{isDiet});
-            }
+            navigation.navigate('feedback',{isDiet});
+
         } catch (error) {
             if( error instanceof AppError) {
                 Alert.alert('Nova Refeição', error.message);

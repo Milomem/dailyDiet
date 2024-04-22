@@ -4,26 +4,27 @@ import { Button } from "@components/button";
 
 import illustration from '@assets/Illustration.png'
 import negative from '@assets/negative.png'
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
  export type RouteParams = {
-    feedback: 'positive' | 'negative';
+    isDiet: boolean;
   }
 
 export function Feedback() {
     const navigation = useNavigation();
+    const route = useRoute();
 
     function handleNavigateToHome() {
         navigation.navigate('home');
     }
     
-    const { feedback } = route.params as RouteParams;
+    const { isDiet } = route.params as RouteParams;
 
     return (
         <Container>
-            { feedback === 'positive' ? (
+            { isDiet === true ? (
                 <>
-                    <Title feedback={feedback}>Continue assim!</Title>
+                    <Title isDiet={isDiet}>Continue assim!</Title>
                     <Description>
                     Você continua {' '}
                         <Span>dentro da dieta</Span>
@@ -34,7 +35,7 @@ export function Feedback() {
              </>
             ): (
                 <>
-                <Title feedback={feedback}>Que pena!</Title>
+                <Title isDiet={isDiet}>Que pena!</Title>
                     <Description>
                     Você {' '}
                         <Span>saiu da dieta</Span>
