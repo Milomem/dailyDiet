@@ -2,7 +2,12 @@ import { useNavigation } from "@react-navigation/native";
 
 import { Bar, Container, ContainerDot, Dot, PropsStyleDot, Time, Title } from "./styles";
 
-export function MealsCard( { color } : PropsStyleDot) {
+type Props = PropsStyleDot & {
+    time: string;
+    nome: string;
+}
+
+export function MealsCard( { color, time, nome } : Props) {
     const navigation = useNavigation();
 
     function handleNavigateToMeal() {
@@ -11,10 +16,10 @@ export function MealsCard( { color } : PropsStyleDot) {
 
     return (
         <Container onPress={handleNavigateToMeal}>
-            <Time>20:00</Time>
+            <Time>{time}</Time>
             <Bar />
             <ContainerDot>
-                <Title>X-tudo</Title>
+                <Title>{nome}</Title>
                 <Dot color={color} />
             </ContainerDot>
         </Container>

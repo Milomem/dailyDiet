@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components/native";
 
-export type DotStypeTypeProps = 'GREEN' | 'RED' 
+export type DotStyleTypeProps = 'GREEN' | 'RED' 
 
 export type PropsStyleDot = {
-    color: DotStypeTypeProps;
+    color: DotStyleTypeProps;
 }
 
 export const Container = styled.TouchableOpacity`
@@ -38,8 +38,7 @@ export const Title = styled.Text`
         color: ${theme.COLORS.GRAY_200};
         font-size: ${theme.FONT_SIZE.MD}px;
         font-family: ${theme.FONT_FAMILY.REGULAR};
-        text-align: center;
-    `}
+        `}
 `
 
 export const Bar = styled.View`
@@ -61,7 +60,7 @@ export const Dot = styled.View<PropsStyleDot>`
 `
 
 export const ContainerDot = styled.View`
-    flex: 1;
+    width: 83%;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
