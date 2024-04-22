@@ -4,8 +4,8 @@ export declare global {
             home: undefined;
             statistics: undefined;
             makeMeals: undefined;
-            feedback: undefined;
-            meals: undefined;
+            feedback: { isDiet: boolean};
+            meals: { id: string };
         }
     }
 }

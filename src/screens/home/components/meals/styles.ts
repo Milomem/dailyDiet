@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
     flex: 1;
-    align-items: self-start;
+    align-items: center;
     justify-content: center;
     margin-top: 32px;
 `
@@ -14,6 +14,7 @@ export const Title = styled.Text`
         font-family: ${theme.FONT_FAMILY.REGULAR};
         margin-bottom: 8px;
     `}
+    width: 100%;
 `
 
 export const Date = styled.Text`

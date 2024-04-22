@@ -8,31 +8,20 @@ import { mealsGetAll } from "@storage/meals/mealsGetAll";
 import { Loading } from "@components/loading";
 import { DotStyleTypeProps } from "@components/mealsCard/styles";
 
+export interface Meal { 
+  date: string, 
+  data: { 
+    id : string,
+    nome: string, 
+    description: string, 
+    time: string, 
+    color: DotStyleTypeProps 
+  }[] 
+}[]
+
 export function Meals() {
-
-    const DATA: { date: string, data: { nome: string, description: string, time: string, color: DotStyleTypeProps }[] }[] = [
-      {
-        date: '12.08.22',
-        data: [
-          {
-          nome: 'X-tudo',
-          description: 'xis completo da lancheria do bairro',
-          time: '12:00',
-          color: 'GREEN'
-        },
-        {
-          nome: 'X-nada',
-          description: 'xis completo da lancheria do bairro',
-          time: '12:00',
-          color: 'RED'
-        },
-      
-      ]
-      },
-    ] 
-
     const [isLoading, setIsLoading] = useState(true);
-    const [meals, setMeals] = useState<string[]>([]);
+    const [meals, setMeals] = useState<Meal[]>([]);
 
     const navigation = useNavigation();
 
@@ -66,10 +55,11 @@ export function Meals() {
             <ButtonIcon onPress={handleNavigateToCreateMeal} icon="add" title="Nova refeição"/>
             {isLoading ? <Loading/> : 
                 <SectionList
-                    sections={DATA}
+                    sections={meals}
                     keyExtractor={(item, index) => item.description + index}
-                    renderItem={({item}) => <MealsCard time={item.time} nome={item.nome} color={item.color}/>}
+                    renderItem={({item}) => <MealsCard id={item.id} time={item.time} nome={item.nome} color={item.color}/>}
                     renderSectionHeader={({section: {date}}) => <Date>{date}</Date>}
+                    showsHorizontalScrollIndicator={false}
                 />
             }
         </Container>

@@ -5,17 +5,18 @@ import { Bar, Container, ContainerDot, Dot, PropsStyleDot, Time, Title } from ".
 type Props = PropsStyleDot & {
     time: string;
     nome: string;
+    id: string;
 }
 
-export function MealsCard( { color, time, nome } : Props) {
+export function MealsCard( { color, time, nome, id } : Props) {
     const navigation = useNavigation();
 
-    function handleNavigateToMeal() {
-        navigation.navigate('meals');
-    }
+    function handleOpenMeals(id: string) {
+        navigation.navigate('meals', { id })
+      }
 
     return (
-        <Container onPress={handleNavigateToMeal}>
+        <Container onPress={()=> handleOpenMeals(id)}>
             <Time>{time}</Time>
             <Bar />
             <ContainerDot>

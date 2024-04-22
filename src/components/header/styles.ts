@@ -4,7 +4,6 @@ import { ArrowLeft } from "phosphor-react-native";
 export const Container = styled.View`
   width: 100%;
 
-  flex-direction: row;
   align-items: center;
   justify-content: center;
 
@@ -16,15 +15,13 @@ export const Title = styled.Text`
     color: ${theme.COLORS.GRAY_100};
     font-size: ${theme.FONT_SIZE.LG}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
-    
-    text-align: center;
-    margin-left: -24px;
-    flex: 1;
   `}
+text-align: center;
 `;
 
 export const BackButton = styled.TouchableOpacity`
   flex: 1;
+  align-self: flex-start;
 `;
 
 export const BackIcon = styled(ArrowLeft).attrs(({ theme }) => ({
