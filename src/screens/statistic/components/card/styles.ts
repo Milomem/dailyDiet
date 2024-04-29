@@ -1,5 +1,11 @@
 import styled, { css } from "styled-components/native";
 
+export type CardStyleTypeProps = 'GREEN' | 'RED';
+
+export type PropsStyleCard = {
+    color?: CardStyleTypeProps;
+}
+
 export const Container = styled.View`
     width: 100%;
     justify-content: center;
@@ -30,7 +36,7 @@ export const Description = styled.Text`
     `}
 `
 
-export const ContainerGreenRed = styled.View`
+export const ContainerGreenRed = styled.View<PropsStyleCard>`
     width: 47.5%;
     justify-content: center;
     align-items: center;
@@ -40,5 +46,5 @@ export const ContainerGreenRed = styled.View`
 
     border-radius: 8px;
 
-    background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+    background-color: ${({ theme, color }) => color === 'GREEN' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `

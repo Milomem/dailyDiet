@@ -11,6 +11,7 @@ import { Alert } from "react-native";
 
 import { mealsCreate } from "@storage/meals/mealsCreate";
 import { AppError } from "@utils/appError";
+import { mealsDetailsCreate } from "@storage/meals/mealsDetailsCreate";
 
 export function MakeMeals() {
     const [nome, setNome] = useState('');
@@ -36,6 +37,8 @@ export function MakeMeals() {
                 return Alert.alert('Nova Refeição','Preencha todos os campos');
             }
             await mealsCreate({date, data: [{id: nome + description, nome, description, time, color: isDiet ? 'GREEN' : 'RED'}]});
+
+            await mealsDetailsCreate( isDiet)
 
             navigation.navigate('feedback',{isDiet});
 
