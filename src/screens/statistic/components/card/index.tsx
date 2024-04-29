@@ -2,13 +2,14 @@ import { Container, ContainerGreenRed, Description, Percent, PropsStyleCard } fr
 
 type CardProps = PropsStyleCard & {
   percent: number | undefined;
+  total?: boolean;
 }
 
-export function Card({ percent }: CardProps) {
+export function Card({ percent, total  }: CardProps) {
   return (
     <Container>
         <Percent>{percent}</Percent>
-        <Description>melhor sequência de pratos dentro da dieta</Description>
+        <Description>{total === true ? 'melhor sequência de pratos dentro da dieta' : 'refeições registradas'}</Description>
     </Container>
   )
 }

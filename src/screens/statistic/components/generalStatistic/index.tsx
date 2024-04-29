@@ -27,7 +27,7 @@ export function GeneralStatistic() {
     return (
         <Container>
             <Title>Estatísticas gerais</Title>
-            <Card  percent={detailsMeals?.bestStreak} />
+            <Card total percent={detailsMeals?.bestStreak} />
             <Card percent={detailsMeals?.total} />
             <CardContainer>
                 <CardGreenRed color="GREEN" percent={detailsMeals?.inDiet}/>

@@ -1,12 +1,16 @@
 import { ArrowLeft, ArrowUpRight } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 
-export const Container = styled.View`
+export type ContainerStyleProps = {
+    color: string;
+}
+
+export const Container = styled.View<ContainerStyleProps>`
     width: 100%;
     height: 102px;
     align-items: center;
     justify-content: center;
-    background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+    background-color: ${({ theme,color }) => color === 'green' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
     border-radius: 8px;
     padding: 20px 16px;
 `

@@ -16,6 +16,10 @@ export async function mealsDetailsCreate(color: boolean) {
             mealsDetails.streak = 0
         }
 
+        mealsDetails.total += 1
+
+        mealsDetails.percentage = (mealsDetails.inDiet / mealsDetails.total) * 100
+
         const storageDetails = JSON.stringify( mealsDetails);
 
         await AsyncStorage.setItem(MEALS_DETAIL, storageDetails );

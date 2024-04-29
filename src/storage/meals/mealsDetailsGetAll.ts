@@ -8,6 +8,7 @@ export type MealDetail = {
     outDiet: number;
     streak: number;
     bestStreak: number;
+    percentage: number;
 }
 
 

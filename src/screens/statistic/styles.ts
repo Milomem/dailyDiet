@@ -1,7 +1,12 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
-export const Container = styled(SafeAreaView)`
+type Props = {
+    color: string;
+}
+
+export const Container = styled(SafeAreaView)<Props>`
     flex: 1;
-    background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+    margin-bottom: -36px;
+    background-color: ${({theme, color}) => color === 'green' ? theme.COLORS.GREEN_LIGHT: theme.COLORS.RED_LIGHT};
 `

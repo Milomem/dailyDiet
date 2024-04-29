@@ -1,7 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { BackButton, Container, Description, Icon, Percent } from "./styled";
 
-export function Header() {
+interface HeaderProps {
+    detailsMeals: number;
+
+}
+
+export function Header({detailsMeals}: HeaderProps) {
     const navigation = useNavigation();
 
     function handleNavigateGoBack() {
@@ -13,7 +18,7 @@ export function Header() {
             <BackButton onPress={handleNavigateGoBack}>
                 <Icon />
             </BackButton>
-            <Percent>90,86%</Percent>
+            <Percent>{detailsMeals.toFixed(2)}%</Percent>
             <Description>das refeições dentro da dieta</Description>
         </Container>
     )
