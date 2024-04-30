@@ -3,6 +3,7 @@ import { Container, DotContainer, DotTitle, Title, Subtitle, Time, Dot, ButtonCo
 import { BigBg } from "@components/bigBg";
 import { ButtonIcon } from "@components/buttonIcon";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { mealsRemove } from "@storage/meals/mealsRemove";
 
 export type RouteParamsMeals = {
     id: string;
@@ -15,12 +16,18 @@ export type RouteParamsMeals = {
 export function Meals () {
     const navigation = useNavigation();
     const route = useRoute();
+    
+    const { id, description, time, nome, color } = route.params as RouteParamsMeals;
 
     function handleNavigateToMakeMeals() {
         navigation.navigate('makeMeals');
     }
 
-    const { id, description, time, nome, color } = route.params as RouteParamsMeals;
+    async function handleRemoveMeal({id, description, time, nome, color} :RouteParamsMeals) {
+        await mealsRemove(id, description, time, nome, color);
+        navigation.goBack()
+    }
+
 
     return (
         <Container color={color}>
@@ -40,7 +47,7 @@ export function Meals () {
 
                 <ButtonContainer>
                     <ButtonIcon onPress={handleNavigateToMakeMeals} title="Editar refeição" icon="edit"/>
-                    <ButtonIcon type="secondary" title="Excluir refeição" icon="delete"/>
+                    <ButtonIcon onPress={() => handleRemoveMeal({id, description, time, nome, color})} type="secondary" title="Excluir refeição" icon="delete"/>
                 </ButtonContainer>
             </BigBg>
         </Container>
