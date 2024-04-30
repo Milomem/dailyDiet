@@ -42,7 +42,7 @@ export function Meals() {
       }
 
     function handleNavigateToCreateMeal() {
-        navigation.navigate('makeMeals');
+        navigation.navigate('makeMeals', {id: '', description: '', time: '', nome: '', color: ''});
     }
 
     useFocusEffect(useCallback(() => {
@@ -57,7 +57,7 @@ export function Meals() {
                 <SectionList
                     sections={meals}
                     keyExtractor={(item, index) => item.description + index}
-                    renderItem={({item}) => <MealsCard id={item.id} time={item.time} nome={item.nome} color={item.color}/>}
+                    renderItem={({item}) => <MealsCard description={item.description} id={item.id} time={item.time} nome={item.nome} color={item.color}/>}
                     renderSectionHeader={({section: {date}}) => <Date>{date}</Date>}
                     showsHorizontalScrollIndicator={false}
                 />

@@ -6,13 +6,14 @@ type Props = PropsStyleDot & {
     time: string;
     nome: string;
     id: string;
+    description: string
 }
 
-export function MealsCard( { color, time, nome, id } : Props) {
+export function MealsCard( { color, time, nome, id, description } : Props) {
     const navigation = useNavigation();
 
     function handleOpenMeals(id: string) {
-        navigation.navigate('meals', { id })
+        navigation.navigate('meals', { id, description, time, nome, color})
       }
 
     return (

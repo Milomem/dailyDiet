@@ -5,7 +5,7 @@ import { DotButton } from "@components/dotButton";
 import { Button } from "@components/button";
 import { Container, InputContainer, Title, TitleContainer } from "./styles";
 
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useState } from "react";
 import { Alert } from "react-native";
 
@@ -36,7 +36,7 @@ export function MakeMeals() {
             date.trim().length === 0 || time.trim().length === 0 || isDiet === undefined) {
                 return Alert.alert('Nova Refeição','Preencha todos os campos');
             }
-            await mealsCreate({date, data: [{id: nome + description, nome, description, time, color: isDiet ? 'GREEN' : 'RED'}]});
+            await mealsCreate({date, data: [{id: date, nome, description, time, color: isDiet ? 'GREEN' : 'RED'}]});
 
             await mealsDetailsCreate( isDiet)
 
@@ -55,7 +55,7 @@ export function MakeMeals() {
         <Container>
             <Header />
             <BigBg>
-                <Input title="Nome" onChangeText={setNome} />
+                <Input title="Nome" onChangeText={setNome}/>
                 <Input title="Descrição" type="BIG" onChangeText={setDescription} />
                 <InputContainer>
                     <Input title="Data" size="SMALL" onChangeText={setDate}/>

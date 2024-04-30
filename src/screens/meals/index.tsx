@@ -2,34 +2,39 @@ import { Header } from "@components/header";
 import { Container, DotContainer, DotTitle, Title, Subtitle, Time, Dot, ButtonContainer } from "./styles";
 import { BigBg } from "@components/bigBg";
 import { ButtonIcon } from "@components/buttonIcon";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-export type RouteParams = {
-    feedback: 'positive' | 'negative';
+export type RouteParamsMeals = {
+    id: string;
+    description: string;
+    time: string;
+    nome: string;
+    color: string;
   }
 
 export function Meals () {
     const navigation = useNavigation();
+    const route = useRoute();
 
     function handleNavigateToMakeMeals() {
         navigation.navigate('makeMeals');
     }
 
-    const { feedback } = route.params as RouteParams;
+    const { id, description, time, nome, color } = route.params as RouteParamsMeals;
 
     return (
-        <Container feedback={feedback} >
+        <Container color={color}>
             <Header/>
             <BigBg>
-                <Title>Sanduíche</Title>
-                <Subtitle>Sanduíche de pão integral com atum e salada de alface e tomate</Subtitle>
+                <Title>{nome}</Title>
+                <Subtitle>{description}</Subtitle>
 
                 <Time>Data e hora</Time>
-                <Subtitle>12/08/2022 às 16:00</Subtitle>
+                <Subtitle>{id} às {time}</Subtitle>
 
                 <DotContainer>
-                        <Dot feedback={feedback}/>
-                        {feedback === 'positive' ? <DotTitle>dentro da dieta</DotTitle> :
+                        <Dot color={color}/>
+                        {color === 'GREEN' ? <DotTitle>dentro da dieta</DotTitle> :
                          <DotTitle>fora da dieta</DotTitle>}
                 </DotContainer>
 

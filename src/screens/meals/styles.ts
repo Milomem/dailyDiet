@@ -1,9 +1,14 @@
 import styled, { css } from "styled-components/native";
 import { RouteParams } from ".";
+import { DotStyleTypeProps } from "@components/mealsCard/styles";
 
-export const Container = styled.View<RouteParams>`
+type ContainerProps = {
+    color: string;
+}
+
+export const Container = styled.View<ContainerProps>`
     flex: 1;
-    background-color: ${({theme, feedback}) => feedback === 'positive' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
+    background-color: ${({theme, color}) => color  === 'GREEN' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
     padding-top: 48px;
 `
 
@@ -68,10 +73,10 @@ export const DotTitle = styled.Text`
     `}
 `
 
-export const Dot = styled.View<RouteParams>`
+export const Dot = styled.View<ContainerProps>`
     width: 8px;
     height: 8px;
-    background-color: ${({ theme , feedback}) => feedback === 'positive' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+    background-color: ${({ theme , color}) => color === 'GREEN' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
     border-radius: 99px;
 `
 
